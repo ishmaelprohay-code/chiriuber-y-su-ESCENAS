@@ -1,0 +1,163 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://CELULAR/NAVECITAS/8-bit-pusab.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://CELULAR/NAVECITAS/HUD.gd" type="Script" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=4]
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 35
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=6]
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=7]
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=8]
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=9]
+font_data = ExtResource( 1 )
+
+[node name="CanvasLayer" type="CanvasLayer"]
+script = ExtResource( 2 )
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -512.0
+margin_right = 512.0
+margin_bottom = 14.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+margin_right = 1024.0
+margin_bottom = 30.0
+alignment = 1
+
+[node name="scores" type="HBoxContainer" parent="MarginContainer/HBoxContainer"]
+margin_left = 384.0
+margin_right = 515.0
+margin_bottom = 30.0
+
+[node name="score" type="Label" parent="MarginContainer/HBoxContainer/scores"]
+margin_right = 111.0
+margin_bottom = 30.0
+custom_fonts/font = SubResource( 1 )
+text = "SCORE: "
+
+[node name="varscore" type="Label" parent="MarginContainer/HBoxContainer/scores"]
+margin_left = 115.0
+margin_right = 131.0
+margin_bottom = 30.0
+custom_fonts/font = SubResource( 2 )
+text = "0"
+
+[node name="VSeparator" type="VSeparator" parent="MarginContainer/HBoxContainer"]
+margin_left = 519.0
+margin_right = 523.0
+margin_bottom = 30.0
+
+[node name="vidas" type="HBoxContainer" parent="MarginContainer/HBoxContainer"]
+margin_left = 527.0
+margin_right = 639.0
+margin_bottom = 30.0
+alignment = 2
+
+[node name="vida" type="Label" parent="MarginContainer/HBoxContainer/vidas"]
+margin_right = 92.0
+margin_bottom = 30.0
+custom_fonts/font = SubResource( 3 )
+text = "LIFE: "
+
+[node name="vidascore" type="Label" parent="MarginContainer/HBoxContainer/vidas"]
+margin_left = 96.0
+margin_right = 112.0
+margin_bottom = 30.0
+custom_fonts/font = SubResource( 4 )
+text = "3"
+
+[node name="gameover" type="VBoxContainer" parent="."]
+visible = false
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_top = -19.0
+margin_bottom = 19.0
+alignment = 1
+
+[node name="Label" type="Label" parent="gameover"]
+margin_right = 1024.0
+margin_bottom = 65.0
+custom_colors/font_color = Color( 1, 0.266667, 0.266667, 1 )
+custom_colors/font_color_shadow = Color( 0.443137, 0.376471, 0.376471, 1 )
+custom_fonts/font = SubResource( 5 )
+text = "GAME OVER"
+align = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="gameover"]
+margin_top = 69.0
+margin_right = 1024.0
+margin_bottom = 105.0
+alignment = 1
+
+[node name="reiniciar" type="Button" parent="gameover/HBoxContainer"]
+margin_left = 408.0
+margin_right = 515.0
+margin_bottom = 36.0
+custom_fonts/font = SubResource( 6 )
+text = "RESET"
+
+[node name="VSeparator" type="VSeparator" parent="gameover/HBoxContainer"]
+margin_left = 519.0
+margin_right = 523.0
+margin_bottom = 36.0
+
+[node name="salir" type="Button" parent="gameover/HBoxContainer"]
+margin_left = 527.0
+margin_right = 615.0
+margin_bottom = 36.0
+custom_fonts/font = SubResource( 7 )
+text = "EXIT"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+visible = false
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -512.0
+margin_top = -76.0
+margin_right = 512.0
+alignment = 1
+
+[node name="volver" type="Button" parent="VBoxContainer"]
+pause_mode = 2
+margin_right = 1024.0
+margin_bottom = 36.0
+custom_fonts/font = SubResource( 8 )
+text = "RETURN"
+
+[node name="salir" type="Button" parent="VBoxContainer"]
+pause_mode = 2
+margin_top = 40.0
+margin_right = 1024.0
+margin_bottom = 76.0
+custom_fonts/font = SubResource( 9 )
+text = "SALIR"
+
+[connection signal="pressed" from="gameover/HBoxContainer/reiniciar" to="." method="_on_reiniciar_pressed"]
+[connection signal="pressed" from="gameover/HBoxContainer/salir" to="." method="_on_salir_pressed"]
+[connection signal="pressed" from="VBoxContainer/volver" to="." method="_on_volver_pressed"]
+[connection signal="pressed" from="VBoxContainer/salir" to="." method="_on_salir_pressed"]
