@@ -5,6 +5,8 @@ onready var  SPEED = 100 #velociad de la nave
 onready var motion = Vector2.ZERO #para que se mueva en vector x y
 onready var screensize = get_viewport_rect().size #saber el tamaño de la pantalla
 
+
+
 func _ready():
 	$AnimatedSprite.play("IDLE")
 	
