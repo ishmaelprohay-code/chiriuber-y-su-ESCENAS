@@ -19,6 +19,7 @@ var canup = false
 
 func _ready():
 	if datos and datos is DatosAuto:
+		$Sprite.frame = datos.Color_CTRL
 		sprite.texture = datos.textura_sprite
 		deslizamiento_actual = datos.deslizamiento_normal
 		escape_pos.position = datos.posicion_escape
@@ -138,8 +139,6 @@ func _input(event):
 	if event.is_action_pressed("accion") and canup:
 		is_player_on = true
 		emit_signal("up")
-		
-
 
 func _on_KinematicBody2D_down():
 	is_player_on = false
