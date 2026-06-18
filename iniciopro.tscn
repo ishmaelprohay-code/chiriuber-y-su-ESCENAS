@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://mapa/mapitanuevo.svg" type="Texture" id=1]
 [ext_resource path="res://mapa/vereda.png" type="Texture" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://mapa/TileCraftGroundSetVersion2.png" type="Texture" id=4]
 [ext_resource path="res://mapa/calletierra.png" type="Texture" id=5]
 [ext_resource path="res://mapa/TECHINGI (1) (2).png" type="Texture" id=6]
+[ext_resource path="res://Autos/Auto.tscn" type="PackedScene" id=7]
 
 [sub_resource type="TileSet" id=1]
 0/name = "mapitanuevo.svg 0"
@@ -264,3 +265,6 @@ tile_data = PoolIntArray( -1703936, -1610612736, 0, -1703935, -1610612736, 0, -1
 tile_set = SubResource( 4 )
 cell_size = Vector2( 32, 32 )
 format = 1
+
+[node name="Auto" parent="." instance=ExtResource( 7 )]
+position = Vector2( -271.576, 689.466 )
